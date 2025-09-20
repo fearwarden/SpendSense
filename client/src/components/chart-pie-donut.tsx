@@ -1,5 +1,6 @@
 "use client";
 
+import axios from "axios";
 import { TrendingUp } from "lucide-react";
 import { Pie, PieChart } from "recharts";
 
@@ -17,6 +18,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart";
+import { useEffect, useState } from "react";
 
 export const description = "A donut chart";
 
@@ -56,6 +58,45 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function ChartPieDonut() {
+  const [categories, setCategories] = useState<
+    {
+      browser: string;
+      visitors: unknown;
+      fill: string;
+    }[]
+  >([]);
+
+  const getRandomColor = () => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return [r, g, b];
+  };
+
+  const getData = async () => {
+    setCategories([]);
+    const resp = await axios.get("/backend/api/transaction/analytics/categories");
+    const data = resp.data;
+    const categoriesObj = data.categories;
+
+    const categoriesList = [];
+
+    for (const category of Object.keys(categoriesObj)) {
+      const color = getRandomColor();
+      categoriesList.push({
+        browser: category,
+        visitors: categoriesObj[category],
+        fill: `rgb(${color[0]}, ${color[1]}, ${color[2]})`,
+      });
+    }
+
+    setCategories(categoriesList);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <Card className="flex flex-col">
       <CardHeader className="items-center pb-0">
@@ -66,7 +107,7 @@ export function ChartPieDonut() {
         <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[250px]">
           <PieChart>
             <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
-            <Pie data={chartData} dataKey="visitors" nameKey="browser" innerRadius={60} />
+            <Pie data={categories} dataKey="visitors" nameKey="browser" innerRadius={60} />
           </PieChart>
         </ChartContainer>
       </CardContent>
