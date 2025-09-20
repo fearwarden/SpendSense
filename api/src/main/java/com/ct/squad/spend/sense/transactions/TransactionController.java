@@ -1,6 +1,7 @@
 package com.ct.squad.spend.sense.transactions;
 
 import com.ct.squad.spend.sense.transactions.dto.request.CreateTransactionDto;
+import com.ct.squad.spend.sense.transactions.dto.response.MonthlyStatsDto;
 import com.ct.squad.spend.sense.transactions.models.Transaction;
 import com.ct.squad.spend.sense.transactions.services.TransactionService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -8,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/transaction")
@@ -24,5 +27,10 @@ public class TransactionController {
     @PostMapping
     public ResponseEntity<Transaction> createTransaction(@RequestBody @Validated CreateTransactionDto body) throws JsonProcessingException {
         return ResponseEntity.ok(transactionService.createTransaction(body));
+    }
+
+    @GetMapping("/yearly-spent")
+    public ResponseEntity<List<MonthlyStatsDto>> yearlySpent() {
+        return ResponseEntity.ok(transactionService.yearlySpent());
     }
 }
