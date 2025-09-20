@@ -7,17 +7,14 @@ from src.mcp_client import get_tools
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup
     try:
         app.state.tools = await get_tools()
     except:
-        raise "BORIS"
+        raise Exception("Loading MCP server failed!")
     print("MCP tools loaded:", app.state.tools)
 
-    yield  # 👈 app runs here
+    yield
 
-    # Shutdown
-    # If you need cleanup, put it here
     print("Shutting down MCP server")
 
 app = FastAPI(lifespan=lifespan)
