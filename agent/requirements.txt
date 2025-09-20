@@ -4,3 +4,4 @@ langchain-mcp-adapters
 langchain
 langchain-ibm
 dotenv
+langgraph
