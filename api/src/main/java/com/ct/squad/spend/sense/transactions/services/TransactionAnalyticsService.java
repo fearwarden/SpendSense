@@ -4,6 +4,6 @@ import com.ct.squad.spend.sense.transactions.models.enums.Category;
 
 import java.util.Map;
 
-public interface TransactionAnalytics {
-    Map<Category, Float> getMonthlySpendingByCategory();
+public interface TransactionAnalyticsService {
+    Map<Category, Double> getMonthlySpendingByCategory();
 }
