@@ -14,9 +14,7 @@ Managing personal finances today is more challenging than ever. Despite the abun
 - **Low Engagement**: Many users abandon finance apps after a few weeks because they don’t provide timely, engaging feedback or actionable insights.  
 - **Financial Stress**: Without clarity and guidance, users often feel anxious about money, leading to poor financial decisions and long-term instability.  
 
-Consumers need more than just *tracking tools*—they need **intelligent, proactive, and personalized support** to help them spend smarter, save consistently, and achieve financial peace of mind. 
-
----
+Consumers need more than just *tracking tools*—they need **intelligent, proactive, and personalized support** to help them spend smarter, save consistently, and achieve financial peace of mind.
 
 ## 💡 The Solution – Smart, Interactive, User-Centric Personal Finance Assistant  
 
@@ -24,9 +22,7 @@ SpendSense transforms the way people engage with their money. Unlike traditional
 
 What truly sets SpendSense apart is its **AI-powered interactivity**. Users don’t need to dig through charts or spreadsheets—they can simply ask: *“Can I afford this purchase?”*, *“How much did I spend on food last month?”*, or *“What are my top recurring expenses?”* and get clear, actionable answers. On top of that, SpendSense delivers personalized advice and curated content to help users make smarter choices, bridging the gap between financial awareness and financial action.  
 
-By combining **real-time transaction intelligence, engaging notifications, and an always-available AI financial companion**, SpendSense doesn’t just track money—it empowers users to build healthier financial habits, one decision at a time.  
-
----
+By combining **real-time transaction intelligence, engaging notifications, and an always-available AI financial companion**, SpendSense doesn’t just track money—it empowers users to build healthier financial habits, one decision at a time.
 
 ## 🚀 Key Features  
 
@@ -54,9 +50,7 @@ By combining **real-time transaction intelligence, engaging notifications, and a
 ### 🔔 **Engagement & Notifications**  
 - **Spending Alerts**: Detects when a user is overspending or going off budget.  
 - **Personalized Financial Articles**: Curated AI-recommended content on saving, investing, and managing money.  
-- **Proactive Nudges**: Encourages users to take action at the right time.  
-
----
+- **Proactive Nudges**: Encourages users to take action at the right time.
 
 ## 🛠️ Tech Stack  
 
@@ -72,8 +66,6 @@ By combining **real-time transaction intelligence, engaging notifications, and a
   - Email Alerts
   - Chat Platform Integration
 
----
-
 ## 👥 Team - CT Squad
 
 - **Milan Jovanovic**
@@ -88,8 +80,6 @@ By combining **real-time transaction intelligence, engaging notifications, and a
   - Designer and Frontend Developer
   - Constantly pushing the boundaries of UX Design
   - Certified Professional Gamer
-
----
 
 ## 🎯 Future Roadmap  
 
