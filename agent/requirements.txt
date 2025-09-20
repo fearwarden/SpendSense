@@ -7,3 +7,4 @@ dotenv
 langgraph
 fastapi[standard]
 langfuse
+mariadb

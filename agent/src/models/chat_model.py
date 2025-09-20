@@ -6,6 +6,9 @@ from src.tracing.tracing import callback_handler, get_tracing_metadata
 
 async def chat(msg: str, tools):
     react_agent = await get_react_agent(tools)
-    config = RunnableConfig(recursion_limit=25, callbacks=[callback_handler], metadata=get_tracing_metadata())
+    thread_id = "conversation-1"
+    agent_config = {"configurable": {"thread_id": thread_id}}
+    config = RunnableConfig(recursion_limit=25, callbacks=[callback_handler], metadata=get_tracing_metadata(), configurable={"thread_id": thread_id})
     response = await react_agent.ainvoke({"messages": [HumanMessage(msg)]}, config=config)
-    return response.get("messages")[-1].content
+    content = response.get("messages")[-1].content
+    return content

@@ -1,4 +1,5 @@
 from langgraph.prebuilt import create_react_agent
+from langgraph.checkpoint.memory import InMemorySaver
 
 from src.chat_client import chat
 
@@ -51,6 +52,8 @@ Special notes:
 
 """
 
+in_memory_saver = InMemorySaver()
+
 async def get_react_agent(tools):
-    react_agent = create_react_agent(chat, tools, prompt=SYS_PROMPT)
+    react_agent = create_react_agent(chat, tools, prompt=SYS_PROMPT, checkpointer=in_memory_saver)
     return react_agent
