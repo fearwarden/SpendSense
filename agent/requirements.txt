@@ -1,3 +1,7 @@
+python-dotenv
+pydantic
+langchain-mcp-adapters
 langchain
 langchain-ibm
 dotenv
+langgraph
