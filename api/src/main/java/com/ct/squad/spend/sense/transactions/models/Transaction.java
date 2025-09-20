@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 import jdk.jfr.Description;
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
@@ -18,7 +19,7 @@ import java.util.UUID;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Transaction {
+public class Transaction implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

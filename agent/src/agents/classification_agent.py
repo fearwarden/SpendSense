@@ -66,7 +66,7 @@ classification_prompt = """
     Example output formats (must match exactly):
     {"category": "Income", "subcategory": ""}
     {"category": "Essentials", "subcategory": "Groceries"}
-    {"category": "Leisure", "subcategory": "Restaurants / Takeaway"}
+    {"category": "Leisure", "subcategory": "Restaurants_Takeaway"}
     {"category": "Misc", "subcategory": ""}
     """
 

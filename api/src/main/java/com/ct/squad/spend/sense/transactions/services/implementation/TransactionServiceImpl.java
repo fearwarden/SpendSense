@@ -1,9 +1,10 @@
 package com.ct.squad.spend.sense.transactions.services.implementation;
 
+import com.ct.squad.spend.sense.commons.dto.ClassificationDto;
+import com.ct.squad.spend.sense.commons.dto.ClassifyDto;
+import com.ct.squad.spend.sense.commons.http.AgentService;
 import com.ct.squad.spend.sense.transactions.dto.request.CreateTransactionDto;
 import com.ct.squad.spend.sense.transactions.models.Transaction;
-import com.ct.squad.spend.sense.transactions.models.enums.Category;
-import com.ct.squad.spend.sense.transactions.models.enums.Subcategory;
 import com.ct.squad.spend.sense.transactions.repositories.TransactionRepository;
 import com.ct.squad.spend.sense.transactions.services.TransactionService;
 import jakarta.persistence.EntityManager;
@@ -23,12 +24,19 @@ public class TransactionServiceImpl implements TransactionService {
     private final ModelMapper modelMapper;
 
     private final TransactionRepository transactionRepository;
+    private final AgentService agentService;
 
     @Override
     public Transaction createTransaction(CreateTransactionDto body) {
+        modelMapper.typeMap(CreateTransactionDto.class, Transaction.class)
+                .addMappings(
+                        mapper ->
+                                mapper.skip(Transaction::setId)
+                );
         Transaction transaction = modelMapper.map(body, Transaction.class);
-        transaction.setCategory(Category.ESSENTIALS);
-        transaction.setSubcategory(Subcategory.GROCERIES);
+        ClassificationDto classify = agentService.classify(new ClassifyDto(transaction.toString()));
+        transaction.setCategory(classify.getCategory());
+        transaction.setSubcategory(classify.getSubcategory());
         return transactionRepository.save(transaction);
     }
 
@@ -38,7 +46,8 @@ public class TransactionServiceImpl implements TransactionService {
             transactionRepository.saveAll(transactions);
             entityManager.flush(); // force writing to the db
             entityManager.clear(); // clear the context memory
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
     }
 
     @Override

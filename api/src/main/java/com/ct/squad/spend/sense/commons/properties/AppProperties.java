@@ -11,4 +11,7 @@ public class AppProperties {
 
     @Value("${spring.static.data}")
     private Resource data;
+
+    @Value("${agent.service.url}")
+    private String agentServiceUrl;
 }

@@ -1,5 +1,6 @@
 package com.ct.squad.spend.sense.transactions.models.enums;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -16,6 +17,12 @@ public enum Subcategory {
     ENTERTAINMENT(Category.LEISURE),
     SHOPPING(Category.LEISURE),
     MISC(Category.TRANSPORTATION);
+
+    @JsonCreator
+    public static Subcategory fromString(String value) {
+        if (value == null) return null;
+        return Subcategory.valueOf(value.toUpperCase());
+    }
 
     private final Category category;
 }
