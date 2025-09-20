@@ -1,6 +1,7 @@
 package com.ct.squad.spend.sense.transactions.services;
 
 import com.ct.squad.spend.sense.transactions.dto.request.CreateTransactionDto;
+import com.ct.squad.spend.sense.transactions.dto.response.MonthlyStatsDto;
 import com.ct.squad.spend.sense.transactions.models.Transaction;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -13,4 +14,6 @@ public interface TransactionService {
     void saveAll(List<Transaction> transactions);
 
     Long countData();
+
+    List<MonthlyStatsDto> yearlySpent();
 }

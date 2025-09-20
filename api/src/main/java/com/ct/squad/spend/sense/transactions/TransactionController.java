@@ -2,6 +2,7 @@ package com.ct.squad.spend.sense.transactions;
 
 import com.ct.squad.spend.sense.transactions.dto.request.CreateTransactionDto;
 import com.ct.squad.spend.sense.transactions.dto.response.CategoriesResponse;
+import com.ct.squad.spend.sense.transactions.dto.response.MonthlyStatsDto;
 import com.ct.squad.spend.sense.transactions.models.Transaction;
 import com.ct.squad.spend.sense.transactions.services.TransactionAnalyticsService;
 import com.ct.squad.spend.sense.transactions.services.TransactionService;
@@ -10,6 +11,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/transaction")
@@ -32,5 +35,10 @@ public class TransactionController {
     @GetMapping("/analytics/categories")
     public ResponseEntity<CategoriesResponse> getCategories() {
         return ResponseEntity.ok(new CategoriesResponse(transactionAnalyticsService.getMonthlySpendingByCategory()));
+    }
+
+    @GetMapping("/yearly-spent")
+    public ResponseEntity<List<MonthlyStatsDto>> yearlySpent() {
+        return ResponseEntity.ok(transactionService.yearlySpent());
     }
 }
