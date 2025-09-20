@@ -6,15 +6,16 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum Subcategory {
-    GROCERIES(Category.ESSENTIAL),
-    UTILITIES(Category.ESSENTIAL),
-    PHARMACY(Category.ESSENTIAL),
+    GROCERIES(Category.ESSENTIALS),
+    UTILITIES(Category.ESSENTIALS),
+    PHARMACY(Category.ESSENTIALS),
     PUBLIC_TRANSPORT(Category.TRANSPORTATION),
     FUEL(Category.TRANSPORTATION),
     TAXI(Category.TRANSPORTATION),
     RESTAURANTS_TAKEAWAY(Category.LEISURE),
     ENTERTAINMENT(Category.LEISURE),
-    SHOPPING(Category.LEISURE);
+    SHOPPING(Category.LEISURE),
+    MISC(Category.TRANSPORTATION);
 
     private final Category category;
 }
