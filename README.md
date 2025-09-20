@@ -62,21 +62,21 @@ By combining **real-time transaction intelligence, engaging notifications, and a
 - **Notifications & Engagement**:
   - Push Notifications
   - Email Alerts
-  - Chat Platform Integration
+  - Chat Platform Integration (Whatsapp, Telegram, Slack, etc.)
 
 ## 👥 Team - CT Squad
 
 - **Milan Jovanovic**
   - Software & AI Engineer
   - 5+ Years of Designing, Implementing and Deploying Software
-  - Pushing the limits of Development
+  - Passionate about emerging Technology
 - **Boris Antonijev**
   - Software & AI Engineer
   - 4+ Years of Software Engineering
   - Enthusiastic about Technology Development and AI training
 - **Srdjan Rogic**
   - Designer and Frontend Developer
-  - Constantly pushing the boundaries of UX Design
+  - 5+ Years of pushing the boundaries of UI/UX Design
   - Certified Professional Gamer
 
 ## 🎯 Future Roadmap  
