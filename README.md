@@ -22,7 +22,7 @@ What truly sets SpendSense apart is its **AI-powered interactivity**. Users don�
 
 By combining **real-time transaction intelligence, engaging notifications, and an always-available AI financial companion**, SpendSense doesn’t just track money—it empowers users to build healthier financial habits, one decision at a time.
 
-![Application UI](https://cdn.discordapp.com/attachments/1418674245386506351/1418941251662643200/Group_45.png?ex=68cff385&is=68cea205&hm=eaef2e60cf8e097869e06735c264c4489e3c712424bf5bf8e6046c3dffec9f83&)
+![Application UI](https://cdn.discordapp.com/attachments/1418674245386506351/1418949472922107934/Group_47.png?ex=68cffb2d&is=68cea9ad&hm=dc2f1bd442281dd990689042836ff75bed2a1246ee32625ad30ace61f8b86044)
 
 ## 🚀 Key Features  
 
@@ -55,7 +55,7 @@ By combining **real-time transaction intelligence, engaging notifications, and a
 ## 🛠️ Tech Stack  
 
 - **Frontend**: React 
-- **Backend**: Java Spring Boot
+- **Backend**: Java Spring Boot, Python FastAPI
 - **Database**: MariaDB  
 - **AI/ML**:  
   - IBM WatsonX
