@@ -22,7 +22,17 @@ app = FastAPI(lifespan=lifespan)
 class Message(BaseModel):
     content: str
 
+class ClassificationDto(BaseModel):
+    transaction: str
+
 @app.post("/api/chat/message")
 async def chat(message: Message, request: Request):
     tools = request.app.state.tools
     return await chat_model.chat(message.content, tools)
+    response = await chat_model.chat(message.content, tools)
+    return {"message": response}
+
+@app.post("/api/chat/classification")
+async def classification(body: ClassificationDto):
+    response = await classify(body.transaction)
+    return response

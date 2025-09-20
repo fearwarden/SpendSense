@@ -1,11 +1,16 @@
 package com.ct.squad.spend.sense.transactions.services.implementation;
 
+import com.ct.squad.spend.sense.commons.dto.ClassificationDto;
+import com.ct.squad.spend.sense.commons.dto.ClassifyDto;
+import com.ct.squad.spend.sense.commons.http.AgentService;
 import com.ct.squad.spend.sense.transactions.dto.request.CreateTransactionDto;
 import com.ct.squad.spend.sense.transactions.models.Transaction;
 import com.ct.squad.spend.sense.transactions.models.enums.Category;
 import com.ct.squad.spend.sense.transactions.models.enums.Subcategory;
 import com.ct.squad.spend.sense.transactions.repositories.TransactionRepository;
 import com.ct.squad.spend.sense.transactions.services.TransactionService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
@@ -21,14 +26,22 @@ public class TransactionServiceImpl implements TransactionService {
     @PersistenceContext
     private final EntityManager entityManager;
     private final ModelMapper modelMapper;
+    private final ObjectMapper objectMapper;
 
     private final TransactionRepository transactionRepository;
+    private final AgentService agentService;
 
     @Override
     public Transaction createTransaction(CreateTransactionDto body) {
+        modelMapper.typeMap(CreateTransactionDto.class, Transaction.class)
+                .addMappings(
+                        mapper ->
+                                mapper.skip(Transaction::setId)
+                );
         Transaction transaction = modelMapper.map(body, Transaction.class);
-        transaction.setCategory(Category.ESSENTIALS);
-        transaction.setSubcategory(Subcategory.GROCERIES);
+        ClassificationDto classify = agentService.classify(new ClassifyDto(transaction.toString()));
+        transaction.setCategory(classify.getCategory());
+        transaction.setSubcategory(classify.getSubcategory());
         return transactionRepository.save(transaction);
     }
 
