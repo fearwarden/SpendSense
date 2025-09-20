@@ -2,11 +2,9 @@ package com.ct.squad.spend.sense.transactions.seeder;
 
 import com.ct.squad.spend.sense.commons.properties.AppProperties;
 import com.ct.squad.spend.sense.transactions.models.Transaction;
-import com.ct.squad.spend.sense.transactions.models.enums.Category;
+import com.ct.squad.spend.sense.transactions.services.TransactionAnalyticsService;
 import com.ct.squad.spend.sense.transactions.services.TransactionService;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
@@ -23,11 +21,12 @@ public class DataSeeder {
     private final ObjectMapper objectMapper;
     private final AppProperties appProperties;
     private final TransactionService transactionService;
+    private final TransactionAnalyticsService transactionAnalyticsService;
 
     @PostConstruct
     public void seedData() throws IOException {
 
-        if (transactionService.countData() > 0) {
+        if (transactionAnalyticsService.countData() > 0) {
             return;
         }
 

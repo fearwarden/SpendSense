@@ -24,7 +24,7 @@ public class TransactionController {
 
     @GetMapping("/count")
     public ResponseEntity<Long> getTransactionCount() {
-        return ResponseEntity.ok(transactionService.countData());
+        return ResponseEntity.ok(transactionAnalyticsService.countData());
     }
 
     @PostMapping
@@ -39,6 +39,6 @@ public class TransactionController {
 
     @GetMapping("/yearly-spent")
     public ResponseEntity<List<MonthlyStatsDto>> yearlySpent() {
-        return ResponseEntity.ok(transactionService.yearlySpent());
+        return ResponseEntity.ok(transactionAnalyticsService.yearlySpent());
     }
 }
