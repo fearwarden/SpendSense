@@ -2,6 +2,8 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
+
+from src.agents.classification_agent import classify
 from src.models import chat_model
 from src.mcp_client import get_tools
 
@@ -29,8 +31,6 @@ class ClassificationDto(BaseModel):
 async def chat(message: Message, request: Request):
     tools = request.app.state.tools
     return await chat_model.chat(message.content, tools)
-    response = await chat_model.chat(message.content, tools)
-    return {"message": response}
 
 @app.post("/api/chat/classification")
 async def classification(body: ClassificationDto):
