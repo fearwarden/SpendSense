@@ -1,6 +1,6 @@
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
-from src.env import DB_HOST, DB_USER, DB_PASSWORD, DB_PORT, DB_NAME
+from src.env import DB_HOST, DB_USER, DB_PASSWORD, DB_PORT, DB_NAME, MCP_PATH
 
 client = MultiServerMCPClient(
         {
@@ -9,7 +9,7 @@ client = MultiServerMCPClient(
                 "command": "uv",
                 "args": [
                     "--directory",
-                    "/home/reputeo/Projects/mcp/src",
+                    MCP_PATH,
                     "run",
                     "server.py"
                 ],
