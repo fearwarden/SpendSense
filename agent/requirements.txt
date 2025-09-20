@@ -5,3 +5,4 @@ langchain
 langchain-ibm
 dotenv
 langgraph
+fastapi[standard]
