@@ -5,3 +5,6 @@ langchain
 langchain-ibm
 dotenv
 langgraph
+fastapi[standard]
+langfuse
+mariadb
