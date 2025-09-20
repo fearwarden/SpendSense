@@ -2,8 +2,6 @@
 
 Take control of your finances with the **AI assistant** that tracks, advises, and empowers your every decision.
 
----
-
 ## ❗ The Problem  
 
 Managing personal finances today is more challenging than ever. Despite the abundance of digital banking apps and budgeting tools, consumers still face several big problems:  
