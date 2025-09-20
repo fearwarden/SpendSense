@@ -21,8 +21,9 @@ app = FastAPI(lifespan=lifespan)
 
 class Message(BaseModel):
     content: str
+    thread_id: str
 
 @app.post("/api/chat/message")
 async def chat(message: Message, request: Request):
     tools = request.app.state.tools
-    return await chat_model.chat(message.content, tools)
+    return await chat_model.chat(message.content, message.thread_id, tools)
