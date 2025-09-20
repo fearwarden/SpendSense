@@ -3,6 +3,7 @@ package com.ct.squad.spend.sense.transactions.models;
 import com.ct.squad.spend.sense.transactions.models.enums.Category;
 import com.ct.squad.spend.sense.transactions.models.enums.Subcategory;
 import com.ct.squad.spend.sense.transactions.models.enums.TransactionTypeShort;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jdk.jfr.Description;
 import lombok.*;
@@ -61,8 +62,10 @@ public class Transaction {
     private String bookingTypeName;
 
     @Description("The date when amount is effective for interest/settlement")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Date valueDate;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Date transactionDate;
 
     @Description("Transaction direction (credit/debit; inflow/outflow)")
