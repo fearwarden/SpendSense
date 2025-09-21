@@ -8,7 +8,8 @@ public enum Category {
     LEISURE,
     TRAVEL,
     SUBSCRIPTIONS,
-    MISC;
+    MISC,
+    INCOME;
 
     @JsonCreator
     public static Category fromString(String value) {

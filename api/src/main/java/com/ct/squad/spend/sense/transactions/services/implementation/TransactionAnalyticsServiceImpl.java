@@ -25,6 +25,7 @@ public class TransactionAnalyticsServiceImpl implements TransactionAnalyticsServ
         Map<Category, Double> map = new EnumMap<>(Category.class);
 
         for(Category category : Category.values()) {
+            if(Category.INCOME.equals(category)) continue;
             Double value = transactionRepository.getMonthlySpendingByCategory(category, getFirstDayOfMonth());
             if(value == null) value = 0d;
             map.put(category, value);
