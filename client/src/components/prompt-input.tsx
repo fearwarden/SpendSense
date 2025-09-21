@@ -31,7 +31,15 @@ const AppPromptInput = (props: AppPromptInputProps) => {
     }, 2000);
   };
   return (
-    <div className="p-8 w-full">
+    <div
+      className="p-8 w-full"
+      style={{
+        backgroundImage: "url('@/assets/modal-background.png')",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
       <PromptInput onSubmit={handleSubmit}>
         <PromptInputTextarea
           onChange={(e) => setText(e.target.value)}

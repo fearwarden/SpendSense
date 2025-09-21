@@ -17,7 +17,7 @@ export function SiteHeader() {
               target="_blank"
               className="dark:text-foreground"
             >
-              Bell
+              Notifications
             </a>
           </Button>
         </div>

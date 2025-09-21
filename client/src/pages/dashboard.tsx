@@ -2,6 +2,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { ChartBarMultiple } from "@/components/chart-area-interactive";
 import { ChartPieDonut } from "@/components/chart-pie-donut";
 import { DataTable } from "@/components/data-table";
+import { SectionCards } from "@/components/section-cards";
 import { SiteHeader } from "@/components/site-header";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import data from "./data.json";
