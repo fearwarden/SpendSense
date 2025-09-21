@@ -101,7 +101,7 @@ export function ChartPieDonut() {
     <Card className="flex flex-col">
       <CardHeader className="items-center pb-0">
         <CardTitle>Overview</CardTitle>
-        <CardDescription>January - August 2024</CardDescription>
+        <CardDescription>August 2025</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[250px]">
