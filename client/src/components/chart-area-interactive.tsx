@@ -17,6 +17,8 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export const description = "A multiple bar chart";
 
@@ -33,16 +35,39 @@ const chartData = [
 
 const chartConfig = {
   desktop: {
-    label: "Spent",
+    label: "Received",
     color: "#006A4E",
   },
   mobile: {
-    label: "Saved",
+    label: "Spent",
     color: "#F58300",
   },
 } satisfies ChartConfig;
 
 export function ChartBarMultiple() {
+  const [months, setMonths] = useState<{ month: unknown; desktop: unknown; mobile: unknown }[]>();
+
+  const getData = async () => {
+    setMonths([]);
+    const resp = await axios.get("/backend/api/transaction/yearly-spent");
+    const data = resp.data;
+
+    const monthlyList = [];
+
+    for (const month of data) {
+      monthlyList.push({
+        month: month.month,
+        desktop: month.totalIncome,
+        mobile: month.totalOutcome,
+      });
+    }
+    setMonths(monthlyList);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <Card>
       <CardHeader>
@@ -50,7 +75,7 @@ export function ChartBarMultiple() {
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
-          <BarChart accessibilityLayer data={chartData}>
+          <BarChart accessibilityLayer data={months}>
             <CartesianGrid vertical={false} />
             <XAxis
               dataKey="month"

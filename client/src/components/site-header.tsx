@@ -21,6 +21,7 @@ export function SiteHeader() {
             </a>
           </Button>
         </div>
+        <div className="ml-auto flex items-center gap-2"></div>
       </div>
     </header>
   );
