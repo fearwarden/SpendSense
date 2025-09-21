@@ -41,11 +41,7 @@ By combining **real-time transaction intelligence, engaging notifications, and a
 - Ask questions like:  
   - *"How much did I spend on food last month?"*  
   - *"Show me my top 3 merchants this year."*  
-  - *"What subscriptions am I still paying for?"*  
-
-### 🏷️ **Logo & Merchant Recognition**  
-- Assigns recognizable **brand logos** to transactions for better visualization.  
-- Example: Starbucks, Netflix, Uber, Amazon.  
+  - *"What subscriptions am I still paying for?"*
 
 ### 🔔 **Engagement & Notifications**  
 - **Spending Alerts**: Detects when a user is overspending or going off budget.  
