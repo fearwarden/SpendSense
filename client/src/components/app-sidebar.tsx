@@ -18,7 +18,7 @@ import { NavDocuments } from "@/components/nav-documents";
 import { NavMain } from "@/components/nav-main";
 import { NavSecondary } from "@/components/nav-secondary";
 import { NavUser } from "@/components/nav-user";
-import AppPromptInput from "@/components/prompt-input";
+import AIChat from "@/pages/ai";
 
 import {
   Sidebar,
@@ -96,18 +96,16 @@ function FullscreenModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-500/70 bg-opacity-0">
-      <div className="bg-white w-[80%] h-[80%] relative p-8 overflow-auto rounded-2xl flex flex-col">
+      <div className="bg-gray-100 w-[80%] h-[80%] relative p-8 overflow-auto rounded-2xl flex flex-col">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-xl px-4 py-2 rounded bg-red-500 text-white hover:bg-red-600"
         >
           Close
         </button>
-
         <div className="flex-1 overflow-auto"></div>
-
         <div className="mt-4">
-          <AppPromptInput />
+          <AIChat />
         </div>
       </div>
     </div>
